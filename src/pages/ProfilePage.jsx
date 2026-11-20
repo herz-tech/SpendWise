@@ -43,7 +43,7 @@ const showPopup = (title, text, type = "success") => {
 
     try {
       const response = await fetch(
-        "http://localhost:5000/api/auth/profile",
+        `${API_BASE_URL}/api/auth/profile`,
         {
           method: "PUT",
           headers: {
@@ -101,7 +101,7 @@ const showPopup = (title, text, type = "success") => {
 
     try {
       const response = await fetch(
-        "http://localhost:5000/api/auth/change-password",
+       `${API_BASE_URL}/api/auth/change-password`,
         {
           method: "PUT",
           headers: {

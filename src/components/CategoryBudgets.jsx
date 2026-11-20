@@ -1,7 +1,7 @@
 
 import { useEffect, useState } from "react";
 import "./CategoryBudgets.css";
-
+import API_BASE_URL from "../api";
 const categories = [
   "Food",
   "Shopping",
@@ -44,7 +44,7 @@ function CategoryBudgets({ transactions = [] }) {
 
     try {
       const response = await fetch(
-        `http://localhost:5000/api/category-budgets/${month}`,
+        `${API_BASE_URL}/api/category-budgets/${month}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -94,7 +94,7 @@ function CategoryBudgets({ transactions = [] }) {
 
     try {
       const response = await fetch(
-        "http://localhost:5000/api/category-budgets",
+        `${API_BASE_URL}/api/category-budgets`,
         {
           method: "POST",
           headers: {

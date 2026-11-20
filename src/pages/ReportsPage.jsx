@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Analytics from "../components/Analytics";
-
+import API_URL from "../api";
 function ReportsPage() {
   const [transactions, setTransactions] = useState([]);
   const token = localStorage.getItem("token");
@@ -9,7 +9,7 @@ function ReportsPage() {
     const fetchTransactions = async () => {
       try {
         const response = await fetch(
-          "http://localhost:5000/api/transactions",
+          `${API_BASE_URL}/api/transactions`,
           {
             headers: {
               Authorization: `Bearer ${token}`,

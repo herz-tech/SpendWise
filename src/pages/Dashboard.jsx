@@ -4,7 +4,7 @@ import Analytics from "../components/Analytics";
 import "./Dashboard.css";
 import incomeGirl from "../assets/spendwise-income-girl.png";
 import expenseGirl from "../assets/spendwise-expense-girl.png";
-
+import API_URL from "../api";
 function Dashboard() {
   const user = JSON.parse(localStorage.getItem("user") || "null");
   const token = localStorage.getItem("token");
@@ -14,7 +14,7 @@ function Dashboard() {
   const fetchDashboardData = async () => {
     try {
       const response = await fetch(
-        "http://localhost:5000/api/transactions",
+        `${API_BASE_URL}/api/transactions`,
         {
           headers: {
             Authorization: `Bearer ${token}`,

@@ -1,7 +1,7 @@
 
 import { useEffect, useState } from "react";
 import "./Transactions.css";
-
+import API_BASE_URL from "../api";
 async function readResponse(response) {
   const text = await response.text();
 
@@ -75,7 +75,7 @@ function Transactions({ onTransactionsChanged }) {
   const fetchTransactions = async () => {
     try {
       const response = await fetch(
-        "http://localhost:5000/api/transactions",
+        `${API_BASE_URL}/api/transactions`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -136,8 +136,8 @@ function Transactions({ onTransactionsChanged }) {
 
       const response = await fetch(
         isEditing
-          ? `http://localhost:5000/api/transactions/${editingId}`
-          : "http://localhost:5000/api/transactions",
+          ? `${API_BASE_URL}/api/transactions/${editingId}`
+          : `${API_BASE_URL}/api/transactions}`,
         {
           method: isEditing ? "PUT" : "POST",
           headers: {
@@ -210,7 +210,7 @@ setPopup(true);
 
     try {
       const response = await fetch(
-        `http://localhost:5000/api/transactions/${id}`,
+        `${API_BASE_URL}/api/transactions`,
         {
           method: "DELETE",
           headers: {

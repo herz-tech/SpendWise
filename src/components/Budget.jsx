@@ -1,7 +1,7 @@
 
 import { useEffect, useState } from "react";
 import "./Budget.css";
-
+import API_BASE_URL from "../api";
 function Budget({ transactions = [] }) {
   const [month, setMonth] = useState(() => {
     const now = new Date();
@@ -24,7 +24,7 @@ function Budget({ transactions = [] }) {
 
     try {
       const response = await fetch(
-        `http://localhost:5000/api/budgets/${month}`,
+        `${API_BASE_URL}/api/budgets/${month}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -90,7 +90,7 @@ function Budget({ transactions = [] }) {
 
     try {
       const response = await fetch(
-        "http://localhost:5000/api/budgets",
+        `${API_BASE_URL}/api/budgets`,
         {
           method: "POST",
           headers: {

@@ -10,7 +10,7 @@ function BudgetPage() {
     const fetchTransactions = async () => {
       try {
         const response = await fetch(
-          "http://localhost:5000/api/transactions",
+          `${API_BASE_URL}/api/transactions`,
           {
             headers: {
               Authorization: `Bearer ${token}`,

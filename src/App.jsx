@@ -1,7 +1,7 @@
 
 import { useState } from "react";
 import { Routes, Route, Navigate, useNavigate } from "react-router-dom";
-
+import API_BASE_URL from "./api";
 import Dashboard from "./pages/Dashboard";
 import MainLayout from "./components/MainLayout";
 import TransactionsPage from "./pages/TransactionsPage";
@@ -52,7 +52,7 @@ function AuthPage() {
       const endpoint = isLogin ? "login" : "register";
 
       const response = await fetch(
-        `http://localhost:5000/api/auth/${endpoint}`,
+        `${API_BASE_URL}/api/auth/${endpoint}`,
         {
           method: "POST",
           headers: {
