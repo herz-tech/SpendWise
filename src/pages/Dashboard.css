@@ -1,0 +1,818 @@
+
+/* =================================
+   SPENDWISE DASHBOARD
+================================= */
+
+.dashboard-page {
+  width: 100%;
+  min-width: 0;
+  color: #20382d;
+  animation: dashboardEnter 0.7s ease both;
+}
+
+.dashboard-main {
+  width: 100%;
+  max-width: 1450px;
+  margin: 0 auto;
+  padding: 38px 42px 55px;
+}
+
+/* =================================
+   HEADER
+================================= */
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 48px;
+}
+
+.dashboard-eyebrow {
+  display: inline-block;
+  color: #83968a;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  margin-bottom: 12px;
+}
+
+.dashboard-welcome h1 {
+  font-size: clamp(25px, 3vw, 35px);
+  letter-spacing: -1.3px;
+  color: #20382d;
+  margin: 0 0 9px;
+  font-weight: 750;
+}
+
+.dashboard-welcome h1 span {
+  color: #a4c75b;
+}
+
+.dashboard-welcome p {
+  color: #89968e;
+  font-size: 14px;
+  margin: 0;
+}
+
+.dashboard-date {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 13px 18px;
+  background: #fff;
+  border: 1px solid #e9eee8;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(32, 56, 45, 0.035);
+}
+
+.date-icon {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 12px;
+  background: #edf4e8;
+  color: #527b4d;
+  font-size: 23px;
+}
+
+.dashboard-date div {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.dashboard-date small {
+  color: #9aa69e;
+  font-size: 9px;
+  letter-spacing: 1.5px;
+  font-weight: 800;
+}
+
+.dashboard-date strong {
+  color: #344b3e;
+  font-size: 12px;
+}
+
+/* =================================
+   OVERVIEW SECTION
+================================= */
+
+.dashboard-overview {
+  margin-bottom: 48px;
+}
+
+.overview-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  margin-bottom: 21px;
+}
+
+.overview-heading .dashboard-eyebrow {
+  margin-bottom: 7px;
+}
+
+.overview-heading h2,
+.analytics-intro h2 {
+  color: #20382d;
+  font-size: 22px;
+  letter-spacing: -0.6px;
+  margin: 0;
+}
+
+.overview-note {
+  color: #8c9a90;
+  font-size: 11px;
+  background: #edf3e9;
+  padding: 8px 13px;
+  border-radius: 20px;
+}
+
+/* =================================
+   SUMMARY CARDS
+================================= */
+
+.dashboard-cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 19px;
+}
+
+.dashboard-card {
+  position: relative;
+  overflow: hidden;
+  padding: 25px 24px 21px;
+  min-width: 0;
+  min-height: 205px;
+  border-radius: 20px;
+  border: 1px solid transparent;
+  box-shadow: 0 8px 25px rgba(32, 56, 45, 0.07);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  animation: cardEnter 0.65s ease both;
+}
+
+.dashboard-card:nth-child(2) {
+  animation-delay: 0.12s;
+}
+
+.dashboard-card:nth-child(3) {
+  animation-delay: 0.24s;
+}
+
+.dashboard-card:hover {
+  transform: translateY(-7px);
+  box-shadow: 0 17px 35px rgba(32, 56, 45, 0.13);
+}
+
+.card-top {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 22px;
+  position: relative;
+  z-index: 2;
+}
+
+.card-icon {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border-radius: 13px;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.card-label {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.4px;
+}
+
+.card-description {
+  font-size: 12px;
+  margin: 0 0 8px;
+}
+
+.dashboard-card h2 {
+  font-size: clamp(19px, 2vw, 25px);
+  letter-spacing: -0.7px;
+  margin: 0;
+  font-weight: 750;
+  overflow-wrap: anywhere;
+}
+
+.card-bottom {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 19px;
+  font-size: 10px;
+}
+
+.card-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+}
+
+/* =================================
+   ATM-STYLE BALANCE CARD
+================================= */
+
+.balance-card {
+  min-height: 220px;
+  padding: 24px;
+  color: white;
+  background:
+    radial-gradient(circle at 90% 10%, rgba(137, 190, 130, 0.2), transparent 35%),
+    linear-gradient(135deg, #143D2D 0%, #20583D 55%, #32704B 100%);
+  border: 1px solid #47775C;
+  border-radius: 20px;
+  box-shadow: 0 12px 28px rgba(24, 69, 47, 0.18);
+}
+
+/* Decorative ATM-card circles */
+
+.balance-card::before {
+  content: "";
+  position: absolute;
+  width: 220px;
+  height: 220px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 50%;
+  right: -95px;
+  top: -105px;
+  pointer-events: none;
+}
+
+.balance-card::after {
+  content: "";
+  position: absolute;
+  width: 175px;
+  height: 175px;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: 50%;
+  right: -55px;
+  top: -80px;
+  pointer-events: none;
+}
+
+/* Gold chip effect */
+
+.balance-card .card-icon {
+  background: linear-gradient(135deg, #F1DEA5, #C5AD70);
+  color: #65552F;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 9px;
+  box-shadow: inset 0 1px 3px rgba(255,255,255,0.5);
+  font-size: 19px;
+}
+
+/* Card heading */
+
+.balance-card .card-label {
+  color: #D3E4D5;
+  letter-spacing: 2px;
+}
+
+.balance-card .card-decoration {
+  margin-left: auto;
+  color: #D6E8B9;
+  font-size: 24px;
+}
+
+/* Card number effect */
+
+.balance-card .card-description {
+  color: #C8DCCB;
+  font-size: 12px;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+}
+
+.balance-card h2 {
+  color: #FFFFFF;
+  font-size: clamp(21px, 2.2vw, 28px);
+  letter-spacing: 0.2px;
+  font-weight: 750;
+}
+
+.balance-card .card-bottom {
+  color: #C9DCCB;
+}
+
+.balance-card .card-dot {
+  background: #C6E58B;
+  box-shadow: 0 0 9px rgba(198, 229, 139, 0.6);
+}
+
+/* =================================
+   INCOME CARD
+================================= */
+
+.income-card {
+  background: linear-gradient(145deg, #F0F8EF, #DDEFE0);
+  border-color: #D7EAD8;
+}
+
+.income-card .card-icon {
+  background: #CDE9D0;
+  color: #347B47;
+}
+
+.income-card .card-label {
+  color: #598564;
+}
+
+.income-card .card-description {
+  color: #72947A;
+}
+
+.income-card h2 {
+  color: #28633A;
+}
+
+.income-card .card-bottom {
+  color: #72947A;
+}
+
+.income-card .card-dot {
+  background: #4B9A5B;
+}
+
+/* =================================
+   EXPENSE CARD
+================================= */
+
+.expense-card {
+  background: linear-gradient(145deg, #FFF5EF, #FCE6DA);
+  border-color: #F3DED2;
+}
+
+.expense-card .card-icon {
+  background: #F8DCCE;
+  color: #C36B46;
+}
+
+.expense-card .card-label {
+  color: #B77B62;
+}
+
+.expense-card .card-description {
+  color: #B88A77;
+}
+
+.expense-card h2 {
+  color: #A94F30;
+}
+
+.expense-card .card-bottom {
+  color: #B88A77;
+}
+
+.expense-card .card-dot {
+  background: #DF895F;
+}
+
+/* =================================
+   ANALYTICS SECTION
+================================= */
+
+.dashboard-section {
+  padding: 29px;
+  background: #FFFFFF;
+  border: 1px solid #E9EEE8;
+  border-radius: 21px;
+  box-shadow: 0 7px 24px rgba(32, 56, 45, 0.035);
+  animation: dashboardEnter 0.8s ease both;
+}
+
+.analytics-intro {
+  margin-bottom: 24px;
+}
+
+.analytics-intro .dashboard-eyebrow {
+  margin-bottom: 8px;
+}
+
+.analytics-intro p {
+  color: #8A988E;
+  font-size: 13px;
+  margin: 9px 0 0;
+}
+
+/* =================================
+   ANIMATIONS
+================================= */
+
+@keyframes dashboardEnter {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes cardEnter {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =================================
+   RESPONSIVE DESIGN
+================================= */
+
+@media (max-width: 1000px) {
+  .dashboard-main {
+    padding: 30px 25px 45px;
+  }
+
+  .dashboard-cards {
+    gap: 12px;
+  }
+
+  .dashboard-card {
+    padding: 21px 17px;
+  }
+}
+
+@media (max-width: 700px) {
+  .dashboard-main {
+    padding: 25px 16px 35px;
+  }
+
+  .dashboard-header {
+    align-items: flex-start;
+    flex-direction: column;
+    margin-bottom: 35px;
+  }
+
+  .dashboard-date {
+    width: fit-content;
+  }
+
+  .dashboard-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-card {
+    min-height: 175px;
+  }
+
+  .overview-heading {
+    align-items: flex-start;
+    gap: 12px;
+    flex-direction: column;
+  }
+
+  .dashboard-section {
+    padding: 20px 15px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dashboard-page,
+  .dashboard-card,
+  .dashboard-section {
+    animation: none;
+  }
+
+  .dashboard-card {
+    transition: none;
+  }
+}
+
+/* CHARACTER HOVER EFFECTS */
+
+.hover-card-wrap {
+  position: relative;
+  min-width: 0;
+  min-height: 205px;
+  overflow: visible;
+}
+
+.hover-card-wrap .dashboard-card {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+}
+
+/* Girl image */
+
+.card-girl {
+  position: absolute;
+  z-index: 1;
+
+  width: 112px;
+  height: 155px;
+
+  object-fit: contain;
+  object-position: bottom;
+
+  left: 50%;
+  bottom: calc(100% - 34px);
+
+  opacity: 0;
+  pointer-events: none;
+
+  transform: translate(-50%, 40px) scale(0.85);
+
+  transition:
+    opacity 0.3s ease,
+    transform 0.45s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+/* Reveal on hover */
+
+.hover-card-wrap:hover .card-girl {
+  opacity: 1;
+  transform: translate(-50%, 0) scale(1);
+}
+
+/* Happy clapping animation */
+
+.income-wrap:hover .income-girl {
+  animation: incomeClap 0.8s ease-in-out 0.35s both;
+}
+
+@keyframes incomeClap {
+  0% {
+    transform: translate(-50%, 0) scale(1);
+  }
+
+  35% {
+    transform: translate(-50%, -8px) scale(1.04);
+  }
+
+  65% {
+    transform: translate(-50%, 2px) scale(0.98);
+  }
+
+  100% {
+    transform: translate(-50%, 0) scale(1);
+  }
+}
+
+/* Sad expense animation */
+
+.expense-wrap:hover .expense-girl {
+  animation: expenseSad 0.9s ease-in-out 0.35s both;
+}
+
+@keyframes expenseSad {
+  0% {
+    transform: translate(-50%, 0) rotate(0deg);
+  }
+
+  30% {
+    transform: translate(-50%, 5px) rotate(3deg);
+  }
+
+  60% {
+    transform: translate(-50%, 2px) rotate(-2deg);
+  }
+
+  100% {
+    transform: translate(-50%, 0) rotate(0deg);
+  }
+}
+
+/* Smaller screens */
+
+@media (max-width: 700px) {
+  .card-girl {
+    width: 96px;
+    height: 135px;
+  }
+}
+
+/* Accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+  .card-girl {
+    transition: none;
+    animation: none !important;
+  }
+}
+/* =================================
+   SPENDWISE DARK MODE - DASHBOARD
+================================= */
+
+[data-theme="dark"] .dashboard-page {
+  color: #edf5ee;
+}
+
+/* Dashboard headings */
+
+[data-theme="dark"] .dashboard-welcome h1,
+[data-theme="dark"] .overview-heading h2,
+[data-theme="dark"] .analytics-intro h2 {
+  color: #edf5ee;
+}
+
+[data-theme="dark"] .dashboard-eyebrow {
+  color: #a8c9ae;
+}
+
+[data-theme="dark"] .dashboard-welcome p,
+[data-theme="dark"] .analytics-intro p {
+  color: #b6cbb9;
+}
+
+/* Date card */
+
+[data-theme="dark"] .dashboard-date {
+  background: #1b3023;
+  border-color: #36513d;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+}
+
+[data-theme="dark"] .dashboard-date small {
+  color: #a8c9ae;
+}
+
+[data-theme="dark"] .dashboard-date strong {
+  color: #edf5ee;
+}
+
+[data-theme="dark"] .date-icon {
+  background: #294832;
+  color: #c5e3c8;
+}
+
+/* Overview note */
+
+[data-theme="dark"] .overview-note {
+  background: #294832;
+  color: #dcebdd;
+}
+
+/* Income and expense cards - soft green */
+
+[data-theme="dark"] .income-card,
+[data-theme="dark"] .expense-card {
+  background: linear-gradient(145deg, #dcebdd, #c9e0cb);
+  border-color: #a9c9ad;
+}
+
+[data-theme="dark"] .income-card .card-label,
+[data-theme="dark"] .expense-card .card-label {
+  color: #315b3c;
+}
+
+[data-theme="dark"] .income-card .card-description,
+[data-theme="dark"] .expense-card .card-description {
+  color: #52745a;
+}
+
+[data-theme="dark"] .income-card h2,
+[data-theme="dark"] .expense-card h2 {
+  color: #183b27;
+}
+
+[data-theme="dark"] .income-card .card-bottom,
+[data-theme="dark"] .expense-card .card-bottom {
+  color: #52745a;
+}
+
+[data-theme="dark"] .income-card .card-icon,
+[data-theme="dark"] .expense-card .card-icon {
+  background: #b5d5b9;
+  color: #245535;
+}
+
+/* Keep ATM balance card unchanged */
+
+[data-theme="dark"] .balance-card {
+  color: white;
+}
+
+/* Analytics section */
+
+[data-theme="dark"] .dashboard-section {
+  background: #dcebdd;
+  border-color: #a9c9ad;
+  box-shadow: 0 7px 24px rgba(0, 0, 0, 0.15);
+}
+
+[data-theme="dark"] .analytics-intro h2 {
+  color: #183b27;
+}
+
+[data-theme="dark"] .analytics-intro p {
+  color: #52745a;
+}
+
+[data-theme="dark"] .dashboard-section .dashboard-eyebrow {
+  color: #52745a;
+}
+
+/* Card hover */
+
+[data-theme="dark"] .dashboard-card:hover {
+  box-shadow: 0 17px 35px rgba(0, 0, 0, 0.25);
+}
+
+/* =================================
+   TOTAL BALANCE - 3D FLIP CARD
+================================= */
+
+.balance-flip-card {
+  position: relative;
+  min-height: 220px;
+  padding: 0 !important;
+  perspective: 1000px;
+  cursor: pointer;
+  outline: none;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.balance-flip-card:focus-visible {
+  outline: 3px solid #a8c9ae;
+  outline-offset: 5px;
+  border-radius: 22px;
+}
+
+.balance-flip-inner {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.8s cubic-bezier(0.2, 0.7, 0.3, 1);
+}
+
+.balance-flip-card.is-flipped .balance-flip-inner {
+  transform: rotateY(180deg);
+}
+
+.balance-flip-face {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  padding: 24px;
+  border-radius: 22px;
+  background: linear-gradient(120deg, #164b36, #306d4c);
+  color: white;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.balance-front {
+  transform: rotateY(0deg);
+}
+
+.balance-back {
+  transform: rotateY(180deg);
+}
+
+.balance-flip-face .card-top {
+  margin-bottom: 5px;
+}
+
+.balance-flip-face .card-description {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.balance-flip-face h2 {
+  color: #ffffff;
+  font-size: clamp(20px, 2vw, 27px);
+  margin: 7px 0 15px;
+}
+
+.balance-flip-face .card-bottom {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 11px;
+}
+
+.balance-flip-face .card-decoration {
+  color: #d7e9b2;
+  font-size: 23px;
+  transition: transform 0.4s ease;
+}
+
+.balance-flip-card:hover .card-decoration {
+  transform: rotate(90deg);
+}

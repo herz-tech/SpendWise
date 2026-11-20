@@ -1,0 +1,83 @@
+
+.main-layout {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+  background: var(--app-bg);
+  color: var(--text-primary);
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.main-content {
+  flex: 1;
+  min-width: 0;
+  height: 100vh;
+  padding: 25px 30px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background: var(--app-bg);
+  transition: background 0.3s ease;
+}
+
+/* Smooth scrolling on the right side */
+.main-content {
+  scroll-behavior: smooth;
+}
+
+/* Keep the theme toggle at the top of the content */
+.content-topbar {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+  .main-content {
+    padding: 18px;
+  }
+}
+
+
+.content-topbar {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.theme-toggle {
+  padding: 10px 16px;
+  border: 1px solid var(--border-color);
+  border-radius: 25px;
+  background: var(--card-bg);
+  color: var(--text-primary);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.theme-toggle:hover {
+  background: var(--accent-color);
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .main-content {
+    padding: 18px;
+  }
+}
+/* Dark mode theme toggle */
+
+[data-theme="dark"] .theme-toggle {
+  background: #294832;
+  color: #edf5ee;
+  border: 1px solid #52765b;
+}
+
+[data-theme="dark"] .theme-toggle:hover {
+  background: #3a6044;
+  color: #ffffff;
+  border-color: #6c9874;
+}
